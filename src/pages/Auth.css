@@ -1,0 +1,312 @@
+/* Auth.css - Modern & High-Fidelity Split Layout */
+
+.auth-page-split {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* ── Visual Side ── */
+.auth-visual {
+  flex: 1.2;
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem;
+  color: white;
+}
+
+.auth-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.auth-visual-content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+.auth-visual-content h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -2px;
+}
+
+.auth-visual-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ── Form Side ── */
+.auth-form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 8%;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.back-btn-fixed {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-btn-fixed:hover {
+  color: #000;
+}
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.auth-form-header {
+  margin-bottom: 2rem;
+}
+
+.auth-form-header h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.auth-form-header p {
+  color: #666;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Forms */
+.modern-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.auth-error-pill {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #fee2e2;
+}
+
+.auth-success-pill {
+  background: #ecfdf5;
+  color: #166534;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid #bbf7d0;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.input-group label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #000;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper svg {
+  position: absolute;
+  left: 16px;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 14px 12px 44px;
+  border: 1.5px solid #eee;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  background: #fafafa;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1);
+}
+
+.input-wrapper input:focus + svg {
+  color: var(--brand-primary);
+}
+
+.btn-auth-solid {
+  background: #000;
+  color: #fff;
+  padding: 14px;
+  border-radius: 9999px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s;
+  margin-top: 0.75rem;
+}
+
+.btn-auth-solid:hover {
+  background: var(--brand-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(45, 106, 79, 0.2);
+}
+
+.auth-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.auth-footer a {
+  font-weight: 800;
+  color: var(--brand-primary);
+  text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-form-wrap {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@media (max-width: 1024px) {
+  .auth-visual {
+    display: none;
+  }
+  .auth-form-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.auth-page-split-reset .auth-visual {
+  background-image:
+    linear-gradient(180deg, rgba(27, 67, 50, 0.15), rgba(0, 0, 0, 0.65)),
+    url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1600&auto=format&fit=crop');
+}
+
+.auth-page-split-reset .auth-badge-reset {
+  margin-bottom: 1rem;
+}
+
+body[data-theme='dark'] .auth-page-split {
+  background: #0f1412;
+}
+
+body[data-theme='dark'] .auth-visual::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+body[data-theme='dark'] .auth-form-container {
+  background: var(--bg-card);
+}
+
+body[data-theme='dark'] .auth-form-header h2,
+body[data-theme='dark'] .input-group label,
+body[data-theme='dark'] .auth-footer {
+  color: var(--text-primary);
+}
+
+body[data-theme='dark'] .auth-form-header p,
+body[data-theme='dark'] .auth-footer p,
+body[data-theme='dark'] .back-btn-fixed {
+  color: var(--text-secondary);
+}
+
+body[data-theme='dark'] .input-wrapper input {
+  background: rgba(15, 23, 20, 0.92);
+  border-color: rgba(148, 163, 184, 0.18);
+  color: var(--text-primary);
+}
+
+body[data-theme='dark'] .input-wrapper input:focus {
+  background: rgba(15, 23, 20, 1);
+  border-color: rgba(74, 222, 128, 0.36);
+  box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.16);
+}
+
+body[data-theme='dark'] .auth-error-pill {
+  background: rgba(153, 27, 27, 0.18);
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.2);
+}
+
+body[data-theme='dark'] .auth-success-pill {
+  background: rgba(22, 163, 74, 0.16);
+  color: #bbf7d0;
+  border-color: rgba(74, 222, 128, 0.18);
+}
+
+body[data-theme='dark'] .btn-auth-solid {
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+body[data-theme='dark'] .btn-auth-solid:hover {
+  background: var(--brand-primary-hover);
+}

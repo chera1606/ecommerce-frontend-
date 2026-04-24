@@ -1,0 +1,266 @@
+/* ── Product Card Component ───────────────────────────── */
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-image-link {
+  display: block;
+}
+
+.card-image {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #fdfbf9;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.discount-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--brand-accent);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+}
+
+.stock-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text-primary);
+  border: 1px solid rgba(231, 229, 228, 0.95);
+}
+
+.stock-tag.low-stock {
+  background: rgba(254, 243, 199, 0.96);
+  color: #92400e;
+  border-color: rgba(253, 230, 138, 0.9);
+}
+
+.stock-tag.in-stock {
+  background: rgba(216, 243, 220, 0.96);
+  color: var(--brand-primary);
+  border-color: rgba(187, 247, 208, 0.9);
+}
+
+.stock-tag.sold-out {
+  background: rgba(254, 226, 226, 0.96);
+  color: #991b1b;
+  border-color: rgba(252, 165, 165, 0.9);
+}
+
+/* Quick Add Button */
+.quick-add-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--brand-primary);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+  font-family: var(--font-body);
+}
+
+.quick-add-btn:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+}
+
+.product-card:hover .quick-add-btn {
+  transform: translateY(0);
+}
+
+/* On mobile: always visible */
+@media (hover: none) {
+  .quick-add-btn {
+    transform: translateY(0) !important;
+    font-size: 0.75rem;
+    padding: 8px;
+  }
+}
+
+.card-body {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-name-link {
+  text-decoration: none;
+}
+
+.card-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.card-sold {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.card-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.card-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--price-color);
+  font-family: var(--font-heading);
+}
+
+.card-original {
+  font-size: 0.78rem;
+  text-decoration: line-through;
+  color: var(--text-tertiary);
+}
+
+.free-ship {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--brand-primary-light);
+  color: var(--brand-primary-hover);
+  padding: 2px 7px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+/* ── Dark Mode Overrides ──────────────────────────────── */
+body[data-theme='dark'] .product-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+body[data-theme='dark'] .card-image {
+  background: #111315;
+}
+
+body[data-theme='dark'] .stock-tag {
+  background: rgba(15, 23, 20, 0.96);
+  color: var(--text-primary);
+  border-color: rgba(148, 163, 184, 0.14);
+}
+
+body[data-theme='dark'] .stock-tag.low-stock {
+  background: rgba(120, 53, 15, 0.24);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+body[data-theme='dark'] .stock-tag.in-stock {
+  background: rgba(45, 106, 79, 0.22);
+  color: #86efac;
+  border-color: rgba(45, 106, 79, 0.28);
+}
+
+body[data-theme='dark'] .stock-tag.sold-out {
+  background: rgba(127, 29, 29, 0.26);
+  color: #fecaca;
+  border-color: rgba(239, 68, 68, 0.18);
+}
+
+body[data-theme='dark'] .quick-add-btn:disabled {
+  background: rgba(75, 85, 99, 0.9);
+}
+
+body[data-theme='dark'] .card-name {
+  color: var(--text-primary);
+}
+
+body[data-theme='dark'] .card-rating {
+  color: var(--text-secondary);
+}
+
+body[data-theme='dark'] .card-price {
+  color: var(--brand-accent);
+}
+
+body[data-theme='dark'] .free-ship {
+  background: rgba(45, 106, 79, 0.25);
+  color: #c7f9d1;
+}
+
+body[data-theme='dark'] .product-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}

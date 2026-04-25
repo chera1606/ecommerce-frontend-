@@ -92,29 +92,29 @@ const Contact = () => {
             <aside className="contact-info">
               <h2>{t('Support Information')}</h2>
 
-              <div className="info-item">
+              <a href="mailto:support@efoygabeya.com" className="info-item" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <Mail size={18} />
                 <div>
                   <strong>{t('Email')}</strong>
                   <p>support@efoygabeya.com</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="info-item">
+              <a href="tel:+251911223344" className="info-item" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <Phone size={18} />
                 <div>
                   <strong>{t('Phone')}</strong>
                   <p>+251 911 22 33 44</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="info-item">
+              <a href="https://maps.google.com/?q=Bole+Road,+Addis+Ababa" target="_blank" rel="noopener noreferrer" className="info-item" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <MapPin size={18} />
                 <div>
                   <strong>{t('Address')}</strong>
                   <p>Bole Road, Addis Ababa</p>
                 </div>
-              </div>
+              </a>
             </aside>
 
             <aside className="contact-info">

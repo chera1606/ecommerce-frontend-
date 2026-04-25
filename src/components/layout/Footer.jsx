@@ -46,9 +46,8 @@ const Footer = () => {
             <h5>{t('customerCare')}</h5>
             <ul>
               <li><Link to="/profile">{t('My Account')}</Link></li>
-              <li><Link to="/orders">{t('Check Orders')}</Link></li>
-              <li><Link to="/help">{t('Support')}</Link></li>
-              <li><Link to="/privacy">{t('Privacy Policy')}</Link></li>
+              <li><Link to="/profile">{t('Check Orders')}</Link></li>
+              <li><Link to="/contact">{t('Support')}</Link></li>
             </ul>
           </div>
 
@@ -59,11 +58,7 @@ const Footer = () => {
               <li><Phone size={14} /> <span>+251 911 223344</span></li>
               <li><Mail size={14} /> <span>hub@efoygabeya.com</span></li>
             </ul>
-            <div className="footer-socials">
-              <a href="#" aria-label="Instagram"><Instagram size={18} /></a>
-              <a href="#" aria-label="Twitter"><Twitter size={18} /></a>
-              <a href="#" aria-label="Facebook"><Facebook size={18} /></a>
-            </div>
+
           </div>
         </div>
       </div>

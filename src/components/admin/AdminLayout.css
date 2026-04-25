@@ -479,6 +479,10 @@
     border-left: none;
   }
 
+  .search-bar {
+    display: none; /* Hide on mobile to save space */
+  }
+
   .admin-avatar {
     width: 36px;
     height: 36px;

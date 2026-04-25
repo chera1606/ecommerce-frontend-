@@ -282,6 +282,7 @@
   .super-admin-hero,
   .super-admin-controls {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .super-admin-note,

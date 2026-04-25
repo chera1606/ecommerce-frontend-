@@ -159,8 +159,10 @@ const SuperAdmin = () => {
             <option value="ADMIN">{t('Admins')}</option>
             <option value="SUPER_ADMIN">{t('Super admins')}</option>
           </select>
+        </div>
 
-          <label htmlFor="statusFilter" style={{ marginLeft: '1rem' }}>{t('Status filter')}</label>
+        <div className="super-filter-row">
+          <label htmlFor="statusFilter">{t('Status filter')}</label>
           <select id="statusFilter" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
             <option value="ALL">{t('All status')}</option>
             <option value="ACTIVE">{t('Active')}</option>

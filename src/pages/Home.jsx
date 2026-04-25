@@ -7,6 +7,12 @@ import ProductCard from '../components/common/ProductCard';
 import './Home.css';
 import { ChevronRight, Star, ShieldCheck, Truck, Headphones, Tag, Zap, TrendingUp, Gift } from 'lucide-react';
 
+const HERO_IMAGES = [
+  'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80',
+  'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&q=80',
+  'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1600&q=80'
+];
+
 
 // --- Section Header ---
 const SectionHeader = ({ icon, title, subtitle, linkTo, viewLabel }) => (
@@ -31,6 +37,14 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
   const { t } = useAppSettings();
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(slideInterval);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -65,6 +79,14 @@ const Home = () => {
 
       {/* --- Hero --- */}
       <section className="hero-banner cinematic">
+        {HERO_IMAGES.map((img, idx) => (
+          <div 
+            key={img} 
+            className={`hero-bg-slide ${idx === heroIndex ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        ))}
+        <div className="hero-overlay" />
         <div className="hero-inner">
           <div className="hero-content reveal active">
             <span className="hero-badge"><Zap size={13} fill="currentColor" /> Premium Marketplace</span>

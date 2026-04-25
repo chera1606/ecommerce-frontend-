@@ -7,7 +7,7 @@ import CartDrawer from '../cart/CartDrawer';
 
 const StorefrontLayout = () => {
   const { pathname } = useLocation();
-  const isAuthPage = pathname === '/login' || pathname === '/register';
+  const isAuthPage = pathname === '/login' || pathname === '/register' || pathname === '/forgot-password';
 
   return (
     <div className="storefront-wrapper">

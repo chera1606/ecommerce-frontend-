@@ -215,7 +215,7 @@ const Navbar = () => {
           {user ? (
             <>
               {roleLabel ? <span className={`nav-role-badge role-${getRoleClass(user.role)}`}>{roleLabel}</span> : null}
-              <div style={{ position: 'relative' }} className="desktop-only">
+              <div style={{ position: 'relative' }}>
                 <button 
                   className="nav-icon-btn" 
                   title={t('notifications')}

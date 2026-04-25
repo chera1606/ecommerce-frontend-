@@ -7,10 +7,25 @@ import ProductCard from '../components/common/ProductCard';
 import './Home.css';
 import { ChevronRight, Star, ShieldCheck, Truck, Headphones, Tag, Zap, TrendingUp, Gift } from 'lucide-react';
 
-const HERO_IMAGES = [
-  'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80',
-  'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&q=80',
-  'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1600&q=80'
+const HERO_SLIDES = [
+  {
+    img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80',
+    title: 'Discover',
+    accent: 'Efoy Gabeya.',
+    desc: 'Your one-stop destination for high-quality electronics, fashion, and home essentials. Curated specifically for you.'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&q=80',
+    title: 'Experience',
+    accent: 'Premium Retail.',
+    desc: 'Step into a world of unparalleled shopping experiences, featuring top brands and exclusive collections.'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1600&q=80',
+    title: 'Elevate',
+    accent: 'Your Lifestyle.',
+    desc: 'From daily essentials to luxurious upgrades, find exactly what you need to transform your space.'
+  }
 ];
 
 
@@ -41,7 +56,7 @@ const Home = () => {
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
-      setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+      setHeroIndex((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 5000);
     return () => clearInterval(slideInterval);
   }, []);
@@ -79,19 +94,19 @@ const Home = () => {
 
       {/* --- Hero --- */}
       <section className="hero-banner cinematic">
-        {HERO_IMAGES.map((img, idx) => (
+        {HERO_SLIDES.map((slide, idx) => (
           <div 
-            key={img} 
+            key={slide.img} 
             className={`hero-bg-slide ${idx === heroIndex ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${img})` }}
+            style={{ backgroundImage: `url(${slide.img})` }}
           />
         ))}
         <div className="hero-overlay" />
         <div className="hero-inner">
-          <div className="hero-content reveal active">
+          <div key={heroIndex} className="hero-content reveal active slide-text-anim">
             <span className="hero-badge"><Zap size={13} fill="currentColor" /> Premium Marketplace</span>
-            <h1>{t('Discover')} <br /><span className="hero-accent">Efoy Gabeya.</span></h1>
-            <p>{t('Your one-stop destination for high-quality electronics, fashion, and home essentials. Curated specifically for you.')}</p>
+            <h1>{t(HERO_SLIDES[heroIndex].title)} <br /><span className="hero-accent">{t(HERO_SLIDES[heroIndex].accent)}</span></h1>
+            <p>{t(HERO_SLIDES[heroIndex].desc)}</p>
             <div className="hero-btns">
               <Link to="/shop" className="btn-solid-lg">{t('Explore Shop')} <ChevronRight size={18} /></Link>
             </div>
